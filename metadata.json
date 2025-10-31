@@ -1,0 +1,5 @@
+{
+  "name": "Gestão Projeto Efêmera",
+  "description": "Uma plataforma colaborativa para gerenciar o cadastro e a presença de acolhidas no projeto social Efêmera, com banco de dados centralizado, acompanhamento de evolução, e relatórios.",
+  "requestFramePermissions": []
+}
