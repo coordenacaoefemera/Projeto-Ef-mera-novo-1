@@ -46,6 +46,14 @@ const App: React.FC = () => {
     supabaseClient!.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
+    }).catch(error => {
+      console.error("Error connecting to Supabase:", error);
+      alert("Não foi possível conectar ao Supabase. Verifique se a URL e a Chave estão corretas. Você será redirecionado para a tela de configuração.");
+      localStorage.removeItem('supabaseUrl');
+      localStorage.removeItem('supabaseKey');
+      setConfigured(false); // This will trigger re-render to show config screen
+      setLoading(false);
+      setInitialLoading(false);
     });
 
     const { data: { subscription } } = supabaseClient!.auth.onAuthStateChange((_event, session) => {
